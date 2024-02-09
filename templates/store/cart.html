@@ -8,10 +8,10 @@
 
         <!-- ============================ COMPONENT 1 ================================= -->
         {% if not cart_items %}
-            <h2 class="text-center">Your Shopping cart is Empty</h2>
+            <h2 class="text-center">Seu carrinho de compras está vazio.</h2>
             <br>
             <div class="text-center">
-                <a href="{% url 'store' %}" class="btn btn-primary">Continue Shopping</a>
+                <a href="{% url 'store' %}" class="btn btn-primary">Continue comprando</a>
             </div>
         {% else %}
             <div class="row">
@@ -20,9 +20,9 @@
                         <table class="table table-borderless table-shopping-cart">
                             <thead class="text-muted">
                                 <tr class="small text-uppercase">
-                                    <th scope="col">Product</th>
-                                    <th scope="col" width="120">Quantity</th>
-                                    <th scope="col" width="120">Price</th>
+                                    <th scope="col">Produto</th>
+                                    <th scope="col" width="120">Quantidade</th>
+                                    <th scope="col" width="120">Preço</th>
                                     <th scope="col" class="text-right" width="200"> </th>
                                 </tr>
                             </thead>
@@ -68,11 +68,11 @@
                                         <td>
                                             <div class="price-wrap">
                                                 <var class="price">R$ {{ cart_item.sub_total }}</var>
-                                                <small class="text-muted"> R$ {{ cart_item.product.price }} each </small>
+                                                <small class="text-muted"> R$ {{ cart_item.product.price }} cada </small>
                                             </div> <!-- price-wrap .// -->
                                         </td>
                                         <td class="text-right">
-                                            <a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id %}" onclick="return confirm('Tem certeza que deseja excluir esse item?')" class="btn btn-danger"> Remove</a>
+                                            <a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id %}" onclick="return confirm('Tem certeza que deseja excluir esse item?')" class="btn btn-danger"> Remover</a>
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -87,7 +87,7 @@
                     <div class="card">
                         <div class="card-body">
                             <dl class="dlist-align">
-                                <dt>Total price:</dt>
+                                <dt>Preço Total:</dt>
                                 <dd class="text-right">R$ {{ total }}</dd>
                             </dl>
                             <dl class="dlist-align">
@@ -95,14 +95,14 @@
                                 <dd class="text-right"> R${{ tax}}</dd>
                             </dl>
                             <dl class="dlist-align">
-                                <dt>Grand_total:</dt>
+                                <dt>Total geral:</dt>
                                 <dd class="text-right text-dark b"><strong>R$ {{ grand_total }}</strong></dd>
                             </dl>
                             <hr>
                             <p class="text-center mb-3">
                                 <img src="{% static './images/misc/payments.png' %}" height="26">
                             </p>
-                            <a href="./place-order.html" class="btn btn-primary btn-block"> Checkout </a>
+                            <a href="{% url 'checkout' %}" class="btn btn-primary btn-block"> Confira </a>
                             <a href="{% url 'store' %}" class="btn btn-light btn-block">Continue Shopping</a>
                         </div> <!-- card-body.// -->
                     </div> <!-- card.// -->
