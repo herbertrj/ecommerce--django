@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # 'csp.middleware.CSPMiddleware',  # Adicione esta linha por seguranca para teste
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -150,3 +151,5 @@ EMAIL_HOST_USER = 'herbertrj26@gmail.com'
 EMAIL_HOST_PASSWORD = 'wssz fbmq ydth qygs'
 EMAIL_USE_TLS = True
  
+# CSP_DEFAULT_SRC = ("'self'",)
+# CSP_SCRIPT_SRC = ("'self'", "https://cdnjs.cloudflare.com")
